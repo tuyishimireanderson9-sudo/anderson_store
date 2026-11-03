@@ -1,0 +1,10 @@
+
+# Local/runtime files
+data/.schema-ready
+data/orders.json
+
+# Local development and sensitive files
+crash.txt
+.env
+.env.*
+!.env.example

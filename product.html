@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Detail | anderson_store</title>
+    <link rel="stylesheet" href="styles.css?v=20261005" />
+    <style>
+      body {
+        background: #f4efe9;
+      }
+      .product-detail-wrap {
+        max-width: 1200px;
+        margin: 48px auto 80px;
+        padding: 0 20px;
+      }
+      .product-detail {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 32px;
+        align-items: center;
+      }
+      .detail-image {
+        border-radius: 32px;
+        overflow: hidden;
+        border: 1px solid rgba(18, 18, 18, 0.08);
+        background: #f3f0eb;
+      }
+      .detail-image img {
+        width: 100%;
+        height: 700px;
+        object-fit: cover;
+      }
+      .detail-info {
+        display: grid;
+        gap: 18px;
+      }
+      .detail-badge {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: #f7f5f2;
+        border: 1px solid rgba(18, 18, 18, 0.08);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .detail-info h1 {
+        margin: 0;
+        font-size: clamp(2.2rem, 5vw, 4rem);
+        letter-spacing: -0.06em;
+        line-height: 0.95;
+      }
+      .detail-price {
+        font-size: 2rem;
+        font-weight: 700;
+      }
+      .detail-meta {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        color: var(--muted);
+      }
+      .sizes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .size-option {
+        min-width: 52px;
+        min-height: 42px;
+        border: 1px solid rgba(18, 18, 18, 0.12);
+        background: transparent;
+        border-radius: 999px;
+        font-weight: 600;
+      }
+      .size-option.selected {
+        background: #111;
+        border-color: #111;
+        color: #fff;
+      }
+      .size-message {
+        min-height: 24px;
+        margin: 10px 0 0;
+        color: #5d5851;
+        font-size: .9rem;
+      }
+      .detail-actions {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .detail-actions .primary-button,
+      .detail-actions .secondary-button {
+        min-width: 180px;
+      }
+      .related-products {
+        max-width: 1200px;
+        margin: 0 auto 80px;
+        padding: 0 20px;
+      }
+      .related-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+      .related-heading h2 {
+        margin: 0;
+        font-size: clamp(1.7rem, 3vw, 2.5rem);
+      }
+      .related-heading p {
+        margin: 0;
+        color: var(--muted);
+      }
+      .related-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
+      }
+      .related-grid .product-card {
+        min-width: 0;
+      }
+      @media (max-width: 900px) {
+        .related-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 760px) {
+        .product-detail {
+          grid-template-columns: 1fr;
+        }
+        .detail-image img {
+          height: 500px;
+        }
+      }
+    </style>
+  </head>
+  <body data-page="product">
+    <nav class="navbar container" style="padding-top: 14px;">
+      <div class="brand-wrap">
+        <button class="nav-menu" aria-label="Open menu">☰</button>
+        <a href="index.php" class="brand">anderson_store</a>
+      </div>
+      <div class="nav-links">
+        <a href="index.php#shop">New Arrivals</a>
+        <a href="index.php#shop">Apparel</a>
+        <a href="index.php#shop">Accessories</a>
+        <a href="index.php#shop">Footwear</a>
+        <a href="index.php#shop">Sale</a>
+      </div>
+      <div class="nav-actions">
+        <a class="icon-button header-icon" href="index.php#shop" aria-label="Search products" title="Search"><span class="icon-search" aria-hidden="true"></span></a>
+        <button class="icon-button header-icon" id="currencyToggle" aria-label="Choose language and currency" aria-expanded="false" title="Language and currency"><span class="icon-globe" aria-hidden="true"></span></button>
+        <a class="icon-button header-icon" href="login.php" aria-label="Account" title="Account">♙</a>
+        <button class="icon-button header-icon" aria-label="Favorites" title="Favorites">☆</button>
+        <button class="icon-button header-icon cart-icon" id="cartToggle" aria-label="Shopping cart" title="Shopping cart"><span class="icon-bag" aria-hidden="true"></span><span id="cartCount">0</span></button>
+      </div>
+    </nav>
+    <div class="currency-panel" id="currencyPanel" aria-hidden="true" hidden>
+      <div class="currency-panel-inner">
+        <h3>Language</h3>
+        <select id="languageSelect" aria-label="Language"><option value="en">English</option></select>
+        <h3>Currency</h3>
+        <div class="currency-current" id="currencyCurrent"><span>🇺🇸</span><strong>USD</strong><span class="currency-chevron">⌃</span></div>
+        <div class="currency-options" id="currencyOptions">
+          <button type="button" data-currency="USD"><img src="https://flagcdn.com/w40/us.png" alt="" /> USD <small>US dollar</small></button>
+          <button type="button" data-currency="EUR"><img src="https://flagcdn.com/w40/eu.png" alt="" /> EUR <small>Euro</small></button>
+          <button type="button" data-currency="GBP"><img src="https://flagcdn.com/w40/gb.png" alt="" /> GBP <small>British pound</small></button>
+          <button type="button" data-currency="CAD"><img src="https://flagcdn.com/w40/ca.png" alt="" /> CAD <small>Canadian dollar</small></button>
+          <button type="button" data-currency="AUD"><img src="https://flagcdn.com/w40/au.png" alt="" /> AUD <small>Australian dollar</small></button>
+          <button type="button" data-currency="SGD"><img src="https://flagcdn.com/w40/sg.png" alt="" /> SGD <small>Singapore dollar</small></button>
+          <button type="button" data-currency="CHF"><img src="https://flagcdn.com/w40/ch.png" alt="" /> CHF <small>Swiss franc</small></button>
+          <button type="button" data-currency="JPY"><img src="https://flagcdn.com/w40/jp.png" alt="" /> JPY <small>Japanese yen</small></button>
+          <button type="button" data-currency="ZAR"><img src="https://flagcdn.com/w40/za.png" alt="" /> ZAR <small>South African rand</small></button>
+          <button type="button" data-currency="RWF"><img src="https://flagcdn.com/w40/rw.png" alt="" /> RWF <small>Rwandan franc</small></button>
+        </div>
+        <button class="currency-change" id="currencyChange" type="button">CHANGE</button>
+      </div>
+    </div>
+
+    <main class="product-detail-wrap">
+      <div class="product-detail">
+        <div class="detail-image">
+          <img id="productImage" src="" alt="Product image" />
+        </div>
+        <div class="detail-info">
+          <span id="productBadge" class="detail-badge">New</span>
+          <h1 id="productName">Product</h1>
+          <div class="detail-price" id="productPrice">0.00k</div>
+          <div class="detail-meta">
+            <span id="productRating">★ 4.8</span>
+            <span>Free shipping</span>
+            <span>30-day returns</span>
+          </div>
+          <p id="productDescription">
+            Premium essentials designed with clean lines, everyday comfort, and a sharp streetwear attitude.
+          </p>
+
+          <div id="productSizeSelector">
+            <h3>Choose size</h3>
+            <div class="sizes" role="group" aria-label="Choose a size">
+              <button class="size-option" type="button" data-size="XS" aria-pressed="false">XS</button>
+              <button class="size-option" type="button" data-size="S" aria-pressed="false">S</button>
+              <button class="size-option" type="button" data-size="M" aria-pressed="false">M</button>
+              <button class="size-option" type="button" data-size="L" aria-pressed="false">L</button>
+              <button class="size-option" type="button" data-size="XL" aria-pressed="false">XL</button>
+              <button class="size-option" type="button" data-size="XXL" aria-pressed="false">XXL</button>
+              <button class="size-option" type="button" data-size="XXXL" aria-pressed="false">XXXL</button>
+            </div>
+            <p class="size-message" id="sizeMessage" role="status" aria-live="polite"></p>
+          </div>
+
+          <div class="detail-actions">
+            <button id="addToCart" class="primary-button">Add to cart</button>
+            <a href="index.php#shop" class="secondary-button">Continue shopping</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <section class="related-products" aria-labelledby="relatedTitle">
+      <div class="related-heading">
+        <div>
+          <p class="eyebrow">You may also like</p>
+          <h2 id="relatedTitle">Similar pieces</h2>
+        </div>
+        <p id="relatedDescription">More from this collection.</p>
+      </div>
+      <div class="related-grid" id="relatedProducts"></div>
+    </section>
+
+    <aside class="cart-panel" id="cartPanel" aria-live="polite">
+      <div class="cart-header">
+        <h3>Your cart</h3>
+        <button id="closeCart" aria-label="Close cart">✕</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-summary">
+        <div>
+          <span>Subtotal</span>
+          <strong id="cartTotal">0.00k</strong>
+        </div>
+        <a href="checkout.php" class="primary-button full" style="display:inline-flex; width:100%;">Checkout</a>
+      </div>
+    </aside>
+
+    <script src="app.js?v=20261005"></script>
+  </body>
+</html>

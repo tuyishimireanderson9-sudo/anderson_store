@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anderson Store</title>
+    <meta
+      name="description"
+      content="Premium essentials and streetwear-inspired apparel for everyday wear."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=20261005" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <p>Free shipping on orders over 150k</p>
+          <div class="topbar-links">
+            <a href="#">Journal</a>
+            <a href="#">Support</a>
+            <a href="#">Account</a>
+          </div>
+        </div>
+      </header>
+
+      <nav class="navbar container">
+        <div class="brand-wrap">
+          <button class="nav-menu" aria-label="Open menu">☰</button>
+          <a href="#" class="brand">anderson_store</a>
+        </div>
+
+        <div class="nav-links">
+          <a href="#shop">New Arrivals</a>
+          <a href="#shop">Apparel</a>
+          <a href="#shop">Accessories</a>
+          <a href="#shop">Footwear</a>
+          <a href="#shop">Sale</a>
+        </div>
+
+        <div class="nav-actions">
+          <button class="icon-button" aria-label="Search">⌕</button>
+          <button class="icon-button" aria-label="Favorites">♡</button>
+          <button class="cart-button" id="cartToggle" aria-label="Shopping cart">
+            Cart <span id="cartCount">0</span>
+          </button>
+        </div>
+      </nav>
+
+      <main>
+        <section class="hero container">
+          <div class="hero-copy">
+            <p class="eyebrow">New season / fall 2026</p>
+            <h1>Built for the street,<br />refined for daily life.</h1>
+            <p class="lede">
+              Essential layers, elevated staples, and clean silhouettes designed to go from city mornings to late-night plans.
+            </p>
+            <div class="hero-actions">
+              <a href="#shop" class="primary-button">Shop collection</a>
+              <a href="#story" class="secondary-button">Read story</a>
+            </div>
+            <ul class="hero-meta">
+              <li><strong>4.9</strong><span>Average rating</span></li>
+              <li><strong>18k+</strong><span>Customers</span></li>
+              <li><strong>48h</strong><span>Shipping</span></li>
+            </ul>
+          </div>
+
+          <div class="hero-visual">
+            <div class="visual-card visual-large">
+              <img
+                src="uploads/product-images/0aabdd0a44eb9e2746a43112.jpg"
+                alt="Model walking in a streetwear outfit"
+              />
+            </div>
+            <div class="visual-card visual-small">
+              <img
+                src="uploads/product-images/26d0371a1172bc340c4a7860.jpg"
+                alt="Close-up of jacket detail"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="feature-bar">
+          <div class="container feature-grid">
+            <div>
+              <span>01</span>
+              <p>Premium cotton blends</p>
+            </div>
+            <div>
+              <span>02</span>
+              <p>Designed in small batches</p>
+            </div>
+            <div>
+              <span>03</span>
+              <p>East African express shipping</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="shop" class="catalog container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Featured essentials</p>
+              <h2>Most loved this week</h2>
+            </div>
+            <div class="filter-row" id="filterRow">
+              <button class="filter active" data-filter="all">All</button>
+              <button class="filter" data-filter="outerwear">Outerwear</button>
+              <button class="filter" data-filter="tees">Tees</button>
+              <button class="filter" data-filter="accessories">Accessories</button>
+            </div>
+          </div>
+
+          <div class="product-grid" id="productGrid"></div>
+        </section>
+
+        <section class="editorial container" id="story">
+          <div class="editorial-copy">
+            <p class="eyebrow">Our approach</p>
+            <h2>Minimal design, maximum utility.</h2>
+            <p>
+              Every piece in the collection is built around balance: durable fabrics, versatile silhouettes, and everyday comfort that works across seasons.
+            </p>
+            <a href="#" class="primary-button">Explore the journal</a>
+          </div>
+
+          <div class="editorial-tiles">
+            <div class="tile tile-large">
+              <img
+                src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80"
+                alt="Editorial street style"
+              />
+            </div>
+            <div class="tile tile-small">
+              <img
+                src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=80"
+                alt="Casual outfit review"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="banner container">
+          <div class="banner-content">
+            <p class="eyebrow">Limited release</p>
+            <h3>New capsule drop: Coast / Utility</h3>
+            <p>Weather-ready layers in muted neutrals and sharp silhouettes.</p>
+          </div>
+          <a href="#shop" class="primary-button alt">Shop the capsule</a>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="container footer-grid">
+          <div>
+            <a href="#" class="brand">anderson_store</a>
+            <p>Curated essentials for everyday movement.</p>
+          </div>
+          <div>
+            <h4>Shop</h4>
+            <ul>
+              <li><a href="#">New arrivals</a></li>
+              <li><a href="#">Outerwear</a></li>
+              <li><a href="#">Accessories</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>About</h4>
+            <ul>
+              <li><a href="#">Journal</a></li>
+              <li><a href="#">Our story</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Newsletter</h4>
+            <form class="newsletter">
+              <input type="email" placeholder="Email address" />
+              <button type="submit">Join</button>
+            </form>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <aside class="cart-panel" id="cartPanel" aria-live="polite">
+      <div class="cart-header">
+        <h3>Your cart</h3>
+        <button id="closeCart" aria-label="Close cart">✕</button>
+      </div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-summary">
+        <div>
+          <span>Subtotal</span>
+          <strong id="cartTotal">0.00k</strong>
+        </div>
+        <button class="primary-button full">Checkout</button>
+      </div>
+    </aside>
+
+    <script src="app.js?v=20261005"></script>
+  </body>
+</html>
